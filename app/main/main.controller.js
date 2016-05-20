@@ -1,14 +1,20 @@
-'use strict';
+(function(){
+	'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+	var controllerId = 'MainController';
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
-  });
-}])
+	angular
+		.module('shack')
+		.controller(controllerId, MainController);
 
-.controller('View1Ctrl', [function() {
+		MainController.$inject = [
+			'$scope',
+			'$mdDialog',
+			'$mdToast'
+		];
 
-}]);
+		function MainController($scope, $mdDialog, $mdToast){
+
+		
+		}
+})();

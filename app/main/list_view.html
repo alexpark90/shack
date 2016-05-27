@@ -27,7 +27,7 @@
 	<tbody>
 	    <tr dir-paginate="car in cars|orderBy:sortKey:reverse|filter:search|itemsPerPage: pageSize" current-page="currentPage"">
 
-	    	<td>{{$index+1}}</td>
+	    	<td>{{$index + 1 + (currentPage - 1) * pageSize}}</td>
 	    	<td ng-repeat="(key, value) in car">{{value}}</td>
 	    	<td><md-button ui-sref="car_detail">go to detail</md-button></td>
 	        <!-- <td>{{car.serial}}</td>

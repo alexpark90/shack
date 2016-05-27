@@ -24,37 +24,27 @@
 
 </head>
 <body>
-    <div flex layout="row">
-        <md-sidenav flex class="md-sidenav-left md-whiteframe-z2" 
-            md-component-id="left"
-            md-is-locked-open="$mdMedia('gt-md')">
-            
-            <md-toolbar>
-                <h1 class="md-toolbar-tools">Sidenav</h1>
-            </md-toolbar>
+    <div flex layout="column">
 
-            <md-list class="sidenav">
-                <md-list-item><img ng-src="asset/images/default.svg">Hello, User</md-list-item>
-                <md-divider></md-divider>
-                <md-list-item>
-                  <md-button ui-sref="main">Main</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ui-sref="car_detail">Car Detail</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ui-sref="account">Account</md-button>
-                </md-list-item>
-                <md-list-item layout="row" layout-align="center center">
-                  <md-button class="md-raised md-primary" ng-click="logout()">
-                    Logout
-                  </md-button>
-                </md-list-item>
-            </md-list>
-        </md-sidenav>
+        <md-toolbar flex layout="row" layout-padding class="md-whiteframe-z3">
+            <div>
+                <span class="md-display-1">Shack Car</span>
+            </div>
+            <div>
+                <md-button ui-sref="main">Main</md-button>
+                <md-button ui-sref="car_detail">Car Detail</md-button>
+                <md-button ui-sref="">Contact Us</md-button>
+            </div>
+            <span flex></span>
+            <div>
+                <md-button ui-sref="account" class="md-raised md-accent">My Account</md-button>
+                <md-button ui-sref="" class="md-raised md-warn">Log In/Out</md-button>
+            </div>
+        </md-toolbar>
 
         <div ui-view tab Index="-1" role="main" flex layout="column"></div>
     </div>
+
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->

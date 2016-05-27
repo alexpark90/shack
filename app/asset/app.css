@@ -1,7 +1,16 @@
 /* app css stylesheet */
 
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.car-detail-header {
+  color : #e91e63;
+}
+
 md-sidenav {
   width: 100%;
   max-width: 100%;
 }
+

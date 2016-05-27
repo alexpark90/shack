@@ -1,1 +1,50 @@
-This is car detail page
+<md-content class="md-padding" layout-xs="column" layout="row">   
+	<div flex-xs flex-sm flex-gt-md="80" layout="column">
+
+		<md-card class="md-margin">
+				<md-card-header class="car-detail-header md-padding">
+					<md-card-header-text>
+						<span class="md-display-1">{{car.make}}</span>
+						<span class="md-headline">{{car.model}}</span>
+					</md-card-header-text>
+				</md-card-header>
+				<div>
+					<img ng-src="asset/images/{{car.serial}}.jpg" class="md-card-image" alt="image" 
+							style="max-height:400px;">
+				</div>
+				<md-card-title>
+					<md-card-title-text>
+						<div layout="row">
+							<span class="md-title" flex-gt-md="25" flex-gt-xs="50">Color: </span>
+							<span class="md-title" flex-gt-md="25" flex-gt-xs="50">Year: </span>
+							<span class="md-title" flex-gt-md="25" flex-gt-xs="50">Engine: </span>
+							<span class="md-title" flex-gt-md="25" flex-gt-xs="50">Price: </span>
+						</div>
+						<div layout="row">
+							<span class="md-subhead" flex-gt-md="25" flex-gt-xs="50">{{car.color}}</span>
+							<span class="md-subhead" flex-gt-md="25" flex-gt-xs="50">{{car.year}}</span>
+							<span class="md-subhead" flex-gt-md="25" flex-gt-xs="50">{{car.enginetype}}</span>
+							<span class="md-subhead" flex-gt-md="25" flex-gt-xs="50">{{car.listprice | currency }}</span>
+						</div>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-content class="md-padding">
+					<p layout="row">
+						I think we should have a car description field as well. We can dispaly the secription here then.
+					</p>
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="start center" class="md-padding">
+			          	<md-card-icon-actions>
+				            <md-button class="md-icon-button md-accent" aria-label="Favorite">
+				            	<i class="fa fa-heart fa-lg" aria-hidden="true"></i>
+				            </md-button>
+				            <md-button class="md-icon-button md-accent" aria-label="Share">
+				             	<i class="fa fa-share fa-lg" aria-hidden="true"></i>
+				            </md-button>
+			          	</md-card-icon-actions>
+			        <md-button class="md-raised">Login</md-button>
+			        <md-button class="md-raised">Comment</md-button>
+		       	</md-card-actions>
+		</md-card>
+	</div>
+</md-content>

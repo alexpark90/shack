@@ -34,7 +34,7 @@
             .state('car_detail', {
               url: "/car_detail/:id",
               templateUrl: "car_detail/car_detail.html",
-              controller: 'DetailController'
+              controller: 'CarDetailController'
             })
             .state('account', {
               url: "/account",

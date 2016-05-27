@@ -6,7 +6,8 @@
         'ngRoute',
         'ui.router',
         'ngMaterial',
-        'ngAnimate'
+        'ngAnimate',
+        'angularUtils.directives.dirPagination'
     ]);
 
     // material design config
@@ -29,6 +30,16 @@
             .state('main', {
               url: "/main",
               templateUrl: "main/main.html",
+              controller: 'MainController'
+            })
+            .state('main.list_view', {
+              url: "/list_view",
+              templateUrl: "main/list_view.html",
+              controller: 'MainController'
+            })
+            .state('main.card_view', {
+              url: "/card_view",
+              templateUrl: "main/card_view.html",
               controller: 'MainController'
             })
             .state('car_detail', {

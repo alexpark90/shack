@@ -4,28 +4,20 @@
 	var controllerId = 'CarDetailController';
 
 	angular
-		.module('lokee')
+		.module('shack')
 		.controller(controllerId, CarDetailController);
 
 		CarDetailController.$inject = [
 			'$scope',
-			'$stateParams'
+			'$stateParams',
+			'carDetailService'
 		];
 
-		function CarDetailController($scope, $stateParams){
+		function CarDetailController($scope, $stateParams, carDetailService){
 
-			$scope.car = {
+			console.log("debuging: " + $stateParams.id);
 
-				"serial": 154204,
-			    "make": "TESLA",
-			    "model": "MRX",
-			    "color": "red",
-			    "year": 2014,
-			    "enginetype": "V6",
-			    "listprice": 57838,
-			    "image": "pic0.jpg"
-
-			};
+			$scope.car = carDetailService.getCar($stateParams.id);
 
 
 			/// functions

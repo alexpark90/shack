@@ -26,21 +26,23 @@
 <body>
     <div flex layout="column">
 
-        <md-toolbar flex layout="row" layout-padding class="md-whiteframe-z3">
-            <div>
-                <span class="md-display-1">Shack Car</span>
-            </div>
-            <div>
-                <md-button ui-sref="main">Main</md-button>
-                <md-button ui-sref="car_detail">Car Detail</md-button>
-                <md-button ui-sref="">Contact Us</md-button>
-            </div>
-            <span flex></span>
-            <div>
-                <md-button ui-sref="account" class="md-raised md-accent">My Account</md-button>
-                <md-button ui-sref="" class="md-raised md-warn">Log In/Out</md-button>
-            </div>
-        </md-toolbar>
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+            <md-toolbar flex layout="row" layout-padding md-scroll-shrink>
+                <div>
+                    <span class="md-display-1">Shack Car</span>
+                </div>
+                <div>
+                    <md-button ui-sref="main">Main</md-button>
+                    <md-button ui-sref="car_detail">Car Detail</md-button>
+                    <md-button ui-sref="">Contact Us</md-button>
+                </div>
+                <span flex></span>
+                <div>
+                    <md-button ui-sref="account" class="md-raised md-accent">My Account</md-button>
+                    <md-button ui-sref="" class="md-raised md-warn">Log In/Out</md-button>
+                </div>
+            </md-toolbar>
+        </md-sidenav>
 
         <div ui-view tab Index="-1" role="main" flex layout="column"></div>
     </div>

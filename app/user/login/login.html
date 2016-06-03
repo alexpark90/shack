@@ -9,21 +9,26 @@
 				</md-button>
 			</div>
 		</md-toolbar>
-		<md-dialog-content>
-			<div class="md-dialog-content">
-				<p><b>Name: </b>{{user.name}}</p>
-				<p><b>Title: </b>{{user.title}}</p>
-				<p><b>Platform: </b>{{user.platform}}</p>
-				<p><b>Location: </b>{{user.location}}</p>
+		<form name="loginSign" ng-submit="login()" class="md-padding">
+			<md-input-container class="input_containers">
+				<md-icon class="fa fa-user" aria-hidden="true"></md-icon>
+				<input type="email" placeholder="Email Address" ng-model="email" required>
+			</md-input-container>
+			<br>
+			<md-input-container class="input_containers">
+				<md-icon class="fa fa-key" aria-hidden="true"></md-icon>
+				<input type="password" placeholder="Password" ng-model="password" required>
+			</md-input-container>
+			
+			<div layout="row" layout-aligh="center center" class="md-margin">
+				<md-button type="submit" ng-disabled="loginSign.$invalid" class="md-raised md-primary" 
+							aria-label="login">
+					Log in
+				</md-button>
+				<md-button type="button" class="md-raised md-primary" aria-label="signup" ng-click="">
+					Sign up
+				</md-button>
 			</div>
-		</md-dialog-content>
-		<md-dialog-actions layout="row" layout-aligh="center center" class="md-margin">
-			<md-button type="button" class="md-raised md-primary" aria-label="login" ng-click="" ng-disabled="">
-				Log in
-			</md-button>
-			<md-button type="button" class="md-raised md-primary" aria-label="signup" ng-click="">
-				Sign up
-			</md-button>
-		</md-dialog-actions>
+		</form>	
 	</div>
 </md-dialog>

@@ -15,8 +15,6 @@
 
 		var vm = this;
 
-		vm.currentPage = 1;
-		vm.pageSize = 5;
 		vm.cars = mainService.getAllCars();
 	}
 

@@ -25,7 +25,7 @@
 
 </head>
 <body>
-    <div flex layout="column">
+    <div ng-controller="NavBarController" flex layout="column">
 
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
             <md-toolbar flex layout="row" layout-padding md-scroll-shrink>
@@ -39,8 +39,7 @@
                 </div>
                 <span flex></span>
                 <div>
-                    <md-button ui-sref="account" class="md-raised md-accent">My Account</md-button>
-                    <md-button ui-sref="" class="md-raised md-warn">Log In/Out</md-button>
+                    <md-button ng-click="showLogin($event)" class="md-raised md-accent">Log In</md-button>
                 </div>
             </md-toolbar>
         </md-sidenav>
@@ -63,11 +62,12 @@
 
     <!-- scripts -->
     <script src="app.js"></script>
+    <script src="navbar.controller.js"></script>
     <script src="default_pic.js"></script>
     <script src="main/main.controller.js"></script>
     <script src="car_detail/car_detail.controller.js"></script>
     <script src="car_detail/car_detail.service.js"></script>
-
+    <script src="user/login/login.controller.js"></script>
 
 </body>
 </html>

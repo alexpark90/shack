@@ -1,44 +1,17 @@
 <h2>List View</h2>
 
-<!-- <h3> Table 1 </h3>
-<table class="table table-striped">
-	<tr>
-	<th>#</th>
-	<th ng-repeat="(header, value) in cars[0]">{{header}}</th>
-	<th>detail</th>
-	</tr>
-	<tr ng-repeat="car in cars">
-		<td>{{$index+1}}</td>
-		<td ng-repeat="(key, value) in car">{{value}}</td>
-		<td><md-button ui-sref="car_detail">go to detail</md-button></td>
-	</tr>
-</table> -->
+<H3>The Number of Cars: {{vm.cars.length}}</H3>
 
-<!-- pagination -->
-<h3> Table 2 </h3>
-<table class="table table-striped">
-	<thead>
-		<tr>
-		<th>#</th>
-		<th ng-repeat="(header, value) in cars[0]">{{header}}</th>
-		<th>detail</th>
-		</tr>
-	</thead>
-	<tbody>
-	    <tr dir-paginate="car in cars|orderBy:sortKey:reverse|filter:search|itemsPerPage: pageSize" current-page="currentPage"">
-
-	    	<td>{{$index + 1 + (currentPage - 1) * pageSize}}</td>
-	    	<td ng-repeat="(key, value) in car">{{value}}</td>
-	    	<td><md-button ui-sref="car_detail">go to detail</md-button></td>
-	        <!-- <td>{{car.serial}}</td>
-	        <td>{{car.make}}</td>
-	        <td>{{car.model}}</td>
-	        <td>{{car.color}}</td> -->
-	    </tr>
-	</tbody>
-</table>
-
-<!-- <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" ></dir-pagination-controls> -->
-
-<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" 
-template-url="dirPagination.tpl.html"></dir-pagination-controls>
+<md-list flex>
+	<md-list-item class="md-2-line">
+		<div class="md-list-item-text" ng-repeat="(header, value) in vm.cars[0]">
+			<span>{{header}}</span>
+		</div>
+	</md-list-item>
+	<md-list-item class="md-2-line secondary-button-padding"  ng-repeat="car in vm.cars" ng-click="null">
+		<div class="md-list-item-text" ng-repeat="(key, value) in car">
+			{{value}}
+		</div>
+		<md-button class="md-secondary" ui-sref="car_detail">More Info</md-button>
+	</md-list-item>
+<md-list>

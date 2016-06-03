@@ -8,18 +8,16 @@
 		.controller(controllerId, MainController);
 
 	MainController.$inject = [
-		'$scope',
-		'$http',
-		'$mdDialog',
-		'$mdToast'
+		'mainService'
 	];
 
-	function MainController($scope, $http, $mdDialog, $mdToast){
+	function MainController(mainService) {
 
-		$http.get("carinfo2.json").then(function(response){
-			$scope.cars = response.data;
-		});
-		$scope.currentPage = 1;
-		$scope.pageSize = 5;
+		var vm = this;
+
+		vm.currentPage = 1;
+		vm.pageSize = 5;
+		vm.cars = mainService.getAllCars();
 	}
+
 })();

@@ -15,7 +15,7 @@
 </md-card> -->
 <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="50" layout="column">
-		<md-card ng-repeat="car in cars">
+		<md-card ng-repeat="car in vm.cars">
 			<md-card-title>
 				<md-card-title-text>
 					<span class="md-headline">{{car.make}} {{car.model}} {{car.enginetype}} {{car.year}}</span>

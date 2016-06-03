@@ -30,7 +30,7 @@
             .state('main', {
               url: "/main",
               templateUrl: "main/main.html",
-              controller: 'MainController'
+              controller: 'MainController as vm'
             })
             .state('main.list_view', {
               url: "/list_view",

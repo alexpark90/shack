@@ -8,12 +8,13 @@
 		.controller(controllerId, NavBarController);
 
 		NavBarController.$inject = [
+			'$rootScope',
 			'$scope',
 			'$mdDialog',
 			'$mdToast'
 		];
 
-		function NavBarController($scope, $mdDialog, $mdToast){
+		function NavBarController($rootScope, $scope, $mdDialog, $mdToast){
 
 			$scope.showLogin = function(event) {
 
@@ -39,6 +40,22 @@
 	                	);
 			    	});	
 	    	};
+
+	    	$scope.logout = function () {
+
+	            if($rootScope.loggedIn === true) {
+
+	                $rootScope.loggedIn = false;
+	                $rootScope.currentUser = null;
+
+	                // show success message
+		    		$mdToast.show(
+                        $mdToast.simple()
+                        .content('You are logged Out!')
+                        .hideDelay(3000)
+            		);
+	            } 
+	        };
 		
 		}
 })();

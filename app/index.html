@@ -6,68 +6,101 @@
 <html lang="en" ng-app="shack" class="no-js">
 <!--<![endif]-->
 <head>
-    <title>Shack Cars</title>
+	<title>Shack Cars</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="description" content="">
-    
-    <!-- fav icon -->
-    <!--<link rel="icon" type="" href=""> -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	
+	<!-- fav icon -->
+	<!--<link rel="icon" type="" href=""> -->
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
-    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="asset/app.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+	<link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="asset/app.css">
 
 </head>
 <body>
-    <div ng-controller="NavBarController" flex layout="column">
+	<div ng-controller="NavBarController" flex layout="column">
 
-        <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-            <md-toolbar flex layout="row" layout-padding md-scroll-shrink>
-                <div>
-                    <span class="md-display-1">Shack Car</span>
-                </div>
-                <div>
-                    <md-button ui-sref="main">Main</md-button>
-                    <md-button ui-sref="car_detail">Car Detail</md-button>
-                    <md-button ui-sref="">Contact Us</md-button>
-                </div>
-                <span flex></span>
-                <div>
-                    <md-button ng-click="showLogin($event)" class="md-raised md-accent">Log In</md-button>
-                </div>
-            </md-toolbar>
-        </md-sidenav>
+		<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+			<md-toolbar flex layout="row" layout-padding md-scroll-shrink>
+				<div>
+					<span class="md-display-1">Shack Car</span>
+				</div>
+				<div>
+					<md-button ui-sref="main">Main</md-button>
+					<md-button ui-sref="car_detail">Car Detail</md-button>
+					<md-button ui-sref="account">Contact Us</md-button>
+				</div>
+				<span flex></span>
+				<div>
+					<md-button ng-show="!loggedIn" ng-click="showLogin($event)" class="md-raised md-accent">
+						Log In
+					</md-button>
+					<md-menu ng-show="loggedIn">
+						<md-button aria-label="Open My Menu" ng-click="$mdOpenMenu($event)">
+							Hello, {{currentUser}}
+						</md-button>
+					  	<md-menu-content>
+							<md-menu-item>
+							  	<md-button ng-click="">
+									My Profile
+								</md-button>
+							</md-menu-item>
+							<md-menu-item>
+							  	<md-button ng-click="">
+									My Cars
+								</md-button>
+							</md-menu-item>
+							<md-menu-item>
+							  	<md-button ng-click="">
+									My WishList
+								</md-button>
+							</md-menu-item>
+							<md-menu-divider></md-menu-divider>
+							<md-menu-item>
+							  	<md-button ng-click="logout()">
+									Log out
+								</md-button>
+							</md-menu-item>
+					  	</md-menu-content>
+					</md-menu>
+				</div>
+				<span flex="10"></span>
+			</md-toolbar>
+		</md-sidenav>
 
-        <div ui-view tab Index="-1" role="main" flex layout="column"></div>
-    </div>
+		<div ui-view tab Index="-1" role="main" flex layout="column"></div>
+	</div>
 
-    <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+	<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
 
-    <!-- vendor scripts -->
-    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="bower_components/angular-material/angular-material.min.js"></script>
+	<!-- vendor scripts -->
+	<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="bower_components/angular-material/angular-material.min.js"></script>
 
-    <!-- scripts -->
-    <script src="app.js"></script>
-    <script src="navbar.controller.js"></script>
-    <script src="default_pic.js"></script>
-    <script src="main/main.controller.js"></script>
-    <script src="car_detail/car_detail.controller.js"></script>
-    <script src="car_detail/car_detail.service.js"></script>
-    <script src="user/login/login.controller.js"></script>
+	<!-- scripts -->
+	<script src="app.js"></script>
+	<script src="navbar.controller.js"></script>
+	<script src="default_pic.js"></script>
+	<script src="main/main.controller.js"></script>
+	<script src="car_detail/car_detail.controller.js"></script>
+	<script src="car_detail/car_detail.service.js"></script>
+	<script src="user/login/login.controller.js"></script>
+	<script src="user/auth.service.js"></script>
+	<script src="account/account.controller.js"></script>
 
 </body>
 </html>

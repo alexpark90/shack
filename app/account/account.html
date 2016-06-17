@@ -1,1 +1,29 @@
-<p>This is account page</p>
+<div layout="row" layout-align="stretch">
+    <md-sidenav flex-gt-sm="25" class="md-sidenav-left"
+                    md-component-id="left"
+                    md-is-locked-open="$mdMedia('gt-sm')"
+                    md-disable-backdrop
+                    md-whiteframe="4">
+        <md-toolbar flex layout="row" layout-align="space-around center" class="md-padding">
+            <img ng-src="asset/images/default.svg" style="height:50%;">
+            <h1 class="md-toolbar-tools">Hello, {{currentUser}}</h1>
+        </md-toolbar>
+        <md-list class="sidenav">
+            <md-list-item>
+                <md-button ui-sref="account">Main</md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ui-sref="account.profile">Profile</md-button>
+            </md-list-item>
+            <md-list-item>
+                <md-button ui-sref="account.wish">Wish List</md-button>
+            </md-list-item>
+            <md-list-item>
+              <md-button ui-sref="account.car">My Cars</md-button>
+            </md-list-item>
+        </md-list>
+        
+    </md-sidenav>
+
+    <div ui-view tabIndex="-1" role="account" flex layout="column"></div>
+</div>
